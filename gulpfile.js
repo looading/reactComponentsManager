@@ -3,13 +3,15 @@ const browserSync = require("browser-sync").create();
 const less = require("gulp-less");
 const browserify = require("browserify");
 const gulpIf = require("gulp-if");
+const babelify = require("babelify");
 const buffer = require("vinyl-buffer");
-const sourceStrem = require("vinyl-source-stream");
+const source = require("vinyl-source-stream");
 const LessAutoprefix = require("less-plugin-autoprefix");
 const yards = require("yards");
 const watchify = require("watchify");
 const gutil = require("gulp-util");
 const envify = require("envify/custom");
+const sourcemaps = require('gulp-sourcemaps');
 const reload = browserSync.reload;
 
 let isDebug = Boolean(yards.debug);
@@ -30,7 +32,7 @@ let watchifyTask = watchify(browserify(opts)
     .transform("babelify", babelOpts)
     .transform(envify({
         NODE_ENV: "development"
-    }));
+    }))
 );
 
 watchifyTask.on('update', bundle);
@@ -46,10 +48,10 @@ function bundle() {
         // optional, remove if you dont want sourcemaps
         //loads map from browserify file
         .pipe(sourcemaps.init({loadMaps: true}))
-        .pipe(sourcemaps.write('./demo')) // writes .map file
+        .pipe(sourcemaps.write('./')) // writes .map file
         .pipe(gulp.dest('./demo'))
-        .pipe(reload());
 }
+
 
 gulp.task('develop', bundle);
 
@@ -92,10 +94,13 @@ gulp.task('css', () => {
         }))
         .pipe(gulp.dest('./demo/css'));
 })
-gulp.task('watchCss', () => {
-    gulp.watch(['./src/less/*.less']).on('change', ['less'], )
+gulp.task('watch', () => {
+    gulp.watch(['./src/less/*.less'], ['css']).on('change', () => {
+        reload();
+    });
+    gulp.watch(['./demo/*.js', './demo/*.html']).on('change', reload);
 })
 
-gulp.task('default', ['server', 'watchCss', 'develop'], () => {
+gulp.task('default', ['server', 'watch', 'develop'], () => {
     console.log(`default task is runing! \n current debug is ${isDebug}`);
 })
