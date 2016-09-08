@@ -7,25 +7,25 @@ const babelify = require("babelify");
 const buffer = require("vinyl-buffer");
 const source = require("vinyl-source-stream");
 const LessAutoprefix = require("less-plugin-autoprefix");
-const yards = require("yards");
+const yargs = require("yargs");
 const watchify = require("watchify");
 const gutil = require("gulp-util");
 const envify = require("envify/custom");
 const sourcemaps = require('gulp-sourcemaps');
 const reload = browserSync.reload;
 
-let isDebug = Boolean(yards.debug);
+let isDebug = Boolean(yargs.debug);
 // less autoprefix
 let autoprefix = new LessAutoprefix({ browsers: ['> 5%', 'Firefox >= 20'] });
 
 let customOpts = {
-    entries: ['./src/main.js'],
+    entries: ['./src/index.js'],
     debug: isDebug
 }
 
 let opts = Object.assign({}, watchify.args, customOpts);
 let babelOpts = {
-    presets: ["es2015", "stage-0"],
+    presets: ["es2015", "stage-0", "react"],
     plugins: ["transform-remove-strict-mode", "transform-object-assign"]
 }
 let watchifyTask = watchify(browserify(opts)

@@ -1,1 +1,1 @@
-# gulp seed
+# manage react components
