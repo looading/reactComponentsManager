@@ -28,12 +28,12 @@ class Generate extends Component {
         return this.props.initData.data[id]
     }
     render() {
-        let { initData, componentsList, id } = this.props
+        let { initData, componentsList, id, className } = this.props
         console.log(initData, componentsList);
         let structure = initData.structure;
         let root = structure.root;
         return(
-            <div>
+            <div className={ className } id={ id }>
                 {
                     root.map((item, index, arr) => {
                         let uuid = item;
