@@ -29,7 +29,6 @@ class Generate extends Component {
     }
     render() {
         let { initData, componentsList, id, className } = this.props
-        console.log(initData, componentsList);
         let structure = initData.structure;
         let root = structure.root;
         return(

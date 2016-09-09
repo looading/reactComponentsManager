@@ -11,17 +11,17 @@ class App extends Component {
         super(props);
     }
     render() {
-        let { initData, componentsList, id, isFull } = this.props;
+        let { initData, componentsList, id, className } = this.props;
         let initProps = {
             initData,
             id,
             componentsList,
-            isFull: true
+            className
         }
         let store = createStore(reducer, initProps)
         return (
             <Provider store={ store }>
-                <Generate id={ 0 }/>
+                <Generate />
             </Provider>
         )
     }
