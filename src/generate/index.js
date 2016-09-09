@@ -42,7 +42,7 @@ class Generate extends Component {
                         let newProps = {
                             data,
                             test: this.test,
-                            className: `id_${uuid}`,
+                            className: `${id}_${uuid}`,
                             id: uuid
                         }
                         return(
