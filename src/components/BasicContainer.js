@@ -6,9 +6,10 @@ class BasciContainer extends Component {
     }
 
     render() {
-
+        let data = this.props.data;
         return(
             <div>
+                { data.text.msg }
             </div>
         )
     }

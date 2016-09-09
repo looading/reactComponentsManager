@@ -19,7 +19,7 @@ let isDebug = Boolean(yargs.debug);
 let autoprefix = new LessAutoprefix({ browsers: ['> 5%', 'Firefox >= 20'] });
 
 let customOpts = {
-    entries: ['./src/index.js'],
+    entries: ['./demo/index.js'],
     debug: isDebug
 }
 
@@ -49,7 +49,7 @@ function bundle() {
         //loads map from browserify file
         .pipe(sourcemaps.init({loadMaps: true}))
         .pipe(sourcemaps.write('./')) // writes .map file
-        .pipe(gulp.dest('./demo'))
+        .pipe(gulp.dest('./demo/dist'))
 }
 
 
@@ -75,30 +75,30 @@ gulp.task('build', ['clean'], () => {
             }
         })))
         .on('error', gutil.log)
-        .pipe(gulp.dest('./demo'));
+        .pipe(gulp.dest('./demo/dist'));
 });
 
 gulp.task('server', () => {
     return browserSync.init({
         server: {
-            baseDir: './demo'
+            baseDir: './demo/dist'
         },
         port: 3000
     })
 })
 
 gulp.task('css', () => {
-    return gulp.src(['src/less/*.less'])
+    return gulp.src(['demo/less/*.less'])
         .pipe(less({
             plugins: [autoprefix]
         }))
-        .pipe(gulp.dest('./demo/css'));
+        .pipe(gulp.dest('./demo/dist/css'));
 })
 gulp.task('watch', () => {
-    gulp.watch(['./src/less/*.less'], ['css']).on('change', () => {
+    gulp.watch(['./demo/less/*.less'], ['css']).on('change', () => {
         reload();
     });
-    gulp.watch(['./demo/*.js', './demo/*.html']).on('change', reload);
+    gulp.watch(['./demo/dist/*.js', './demo/dist/*.html']).on('change', reload);
 })
 
 gulp.task('default', ['server', 'watch', 'develop'], () => {
