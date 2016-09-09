@@ -1,46 +1,47 @@
 {
-  "name": "react-components-manager",
-  "version": "1.0.1",
-  "description": "manage react components server render",
-  "main": "src/index.js",
-  "dependencies": {
-    "babel-preset-es2015": "^6.14.0",
-    "babel-preset-react": "^6.11.1",
-    "react": "^15.3.1",
-    "react-dom": "^15.3.1",
-    "react-redux": "^4.4.5",
-    "redux": "^3.5.2"
-  },
-  "devDependencies": {
-    "babel-plugin-transform-object-assign": "^6.8.0",
-    "babel-plugin-transform-remove-strict-mode": "0.0.2",
-    "babel-preset-es2015": "^6.13.2",
-    "babel-preset-stage-0": "^6.5.0",
-    "babelify": "^7.3.0",
-    "browser-sync": "^2.14.0",
-    "browserify": "^13.1.0",
-    "envify": "^3.4.1",
-    "gulp": "^3.9.1",
-    "gulp-babel": "^6.1.2",
-    "gulp-if": "^2.0.1",
-    "gulp-less": "^3.1.0",
-    "gulp-sourcemaps": "^1.6.0",
-    "gulp-util": "^3.0.7",
-    "less": "^2.7.1",
-    "less-plugin-autoprefix": "^1.5.1",
-    "vinyl-buffer": "^1.0.0",
-    "vinyl-source-stream": "^1.1.0",
-    "watchify": "^3.7.0",
-    "yargs": "^5.0.0"
-  },
-  "browserify": {
-      "transform": [
-        "babelify"
-      ]
+    "name": "react-components-manager",
+    "version": "1.0.2",
+    "description": "manage react components server render",
+    "main": "src/index.js",
+    "dependencies": {
+        "babel-preset-es2015": "^6.14.0",
+        "babel-preset-react": "^6.11.1",
+        "react": "^15.3.1",
+        "react-dom": "^15.3.1",
+        "react-redux": "^4.4.5",
+        "redux": "^3.5.2"
     },
-  "scripts": {
-    "run": "gulp"
-  },
-  "author": "ctyloading",
-  "license": "ISC"
+    "devDependencies": {
+        "babel-plugin-transform-object-assign": "^6.8.0",
+        "babel-plugin-transform-remove-strict-mode": "0.0.2",
+        "babel-preset-es2015": "^6.13.2",
+        "babel-preset-stage-0": "^6.5.0",
+        "babelify": "^7.3.0",
+        "browser-sync": "^2.14.0",
+        "browserify": "^13.1.0",
+        "envify": "^3.4.1",
+        "gulp": "^3.9.1",
+        "gulp-babel": "^6.1.2",
+        "gulp-if": "^2.0.1",
+        "gulp-less": "^3.1.0",
+        "gulp-sourcemaps": "^1.6.0",
+        "gulp-util": "^3.0.7",
+        "less": "^2.7.1",
+        "less-plugin-autoprefix": "^1.5.1",
+        "vinyl-buffer": "^1.0.0",
+        "vinyl-source-stream": "^1.1.0",
+        "watchify": "^3.7.0",
+        "yargs": "^5.0.0"
+    },
+    "browserify": {
+        "transform": [
+            "babelify"
+        ]
+    },
+
+    "scripts": {
+        "run": "gulp"
+    },
+    "author": "ctyloading",
+    "license": "ISC"
 }
