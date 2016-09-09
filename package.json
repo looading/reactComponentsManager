@@ -33,6 +33,11 @@
     "watchify": "^3.7.0",
     "yargs": "^5.0.0"
   },
+  "browserify": {
+      "transform": [
+        "babelify"
+      ]
+    },
   "scripts": {
     "run": "gulp"
   },
