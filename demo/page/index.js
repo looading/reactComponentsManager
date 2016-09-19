@@ -46,7 +46,6 @@ render(
     <App
         initData={ initData }
         componentsList={ componentsList }
-        isFull={ true }
         id={ "ctyloading" }
     />,
     document.querySelector('#page')
