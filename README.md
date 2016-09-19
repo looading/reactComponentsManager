@@ -1,5 +1,5 @@
 # manage react components
-
+![](https://travis-ci.org/looading/reactComponentsManager.svg?branch=master)
 ## react 服务端组件渲染
 
 ## TODO
