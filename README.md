@@ -4,7 +4,7 @@
 
 ## TODO
 
-1. import dependencies
+1.import dependencies
 
 ```js
 import React from "react";
@@ -13,14 +13,14 @@ import { render } from "react-dom";
 import App from "react-components-manager";
 ```
 
-2. import your components
+2.import your components
 
 ```js
 // components
 import Help from "../components/Help";
 ```
 
-3. setup initData and componentsList
+3.setup initData and componentsList
 
 ```js
 let initData = {
@@ -68,7 +68,7 @@ let componentsList = {
 }
 ```
 
-4. render
+4.render
 
 ```js
 render(
