@@ -16,7 +16,8 @@ class App extends Component {
             initData,
             id,
             componentsList,
-            className
+            className,
+
         }
         let store = createStore(reducer, initProps)
         return (

@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
-import test from "./test";
+import update from "./test";
 
-const reducer = test
+const reducer = update
 
 export default reducer;

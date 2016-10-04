@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from "react";
-import { clone } from '../Utils'
+import { clone } from '../utils'
 
 class Children extends Component {
     constructor(props) {

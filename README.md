@@ -4,7 +4,7 @@
 
 ## TODO
 
-1.import dependencies
+### import dependencies
 
 ```js
 import React from "react";
@@ -13,14 +13,14 @@ import { render } from "react-dom";
 import App from "react-components-manager";
 ```
 
-2.import your components
+### import your components
 
 ```js
 // components
 import Help from "../components/Help";
 ```
 
-3.setup initData and componentsList
+### setup initData and componentsList
 
 ```js
 let initData = {
@@ -68,7 +68,7 @@ let componentsList = {
 }
 ```
 
-4.render
+### render
 
 ```js
 render(
@@ -80,3 +80,63 @@ render(
     document.querySelector('#page')
 )
 ```
+
+### components
+
+```js
+import React, { Component, PropTypes } from "react";
+
+class Help extends Component {
+    constructor(props) {
+        super(props);
+        this.onClick = this.onClick.bind(this);
+    }
+
+    onClick() {
+        this.props.update(this.props.id, (componentName, state) => {
+          console.info(componentName, state)
+          return state;
+        })
+    }
+
+    render() {
+        // data为传入的数据，initData中所对应组件的数据
+        // className id 为 App 自动生成，必须放入最外层div
+        let { data, className, id } = this.props;
+
+        return (
+            <h1 className={ className } id={ id } onClick={ this.onClick }>{ data.text.msg }</h1>
+        )
+    }
+}
+
+
+module.exports = Help;
+
+```
+
+#### this.props
+
+```js
+let { id, data, className, update } = this.props;
+// id 组件唯一标识
+// data initData中所对应组件的数据
+// className sdk生成的className
+// update 手动更新state的接口
+```
+
+##### this.props.update
+
+params:
+  - id 组件的唯一标识
+  - callback 回调函数
+    - id 组件的唯一标识
+    - state 应用的state
+
+```js
+this.props.update(this.props.id, (id, state) => {
+    return state; // 修改后必须返回
+  })
+```
+
+## 更新中····

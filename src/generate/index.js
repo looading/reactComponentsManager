@@ -1,13 +1,16 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { update } from '../action';
+
+
 
 class Generate extends Component {
     constructor(props) {
         super(props);
-        this.test = this.test.bind(this);
+        this.update = this.update.bind(this);
     }
-    test() {
-        this.props.test();
+    update(componentName, callback) {
+        this.props.update(componentName, callback);
     }
     iterator(data) {
         data.map(() => {
@@ -15,7 +18,6 @@ class Generate extends Component {
                 <h1>132</h1>
             )
         })
-        console.info(data);
         return data;
     }
 
@@ -28,7 +30,7 @@ class Generate extends Component {
         return this.props.initData.data[id]
     }
     render() {
-        let { initData, componentsList, id, className } = this.props
+        let { initData, componentsList, id, className } = this.props;
         let structure = initData.structure;
         let root = structure.root;
         return(
@@ -41,7 +43,7 @@ class Generate extends Component {
 
                         let newProps = {
                             data,
-                            test: this.test,
+                            update: this.update,
                             className: `${id}_${uuid}`,
                             id: uuid
                         }
@@ -57,7 +59,6 @@ class Generate extends Component {
 
 
 function getCurrentComponentsData(state, id) {
-    console.info(state, id);
     return state.initData.data[id]
 }
 
@@ -70,8 +71,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        test: function() {
-            return dispatch(test)
+        update: function(componentName, callback) {
+            return dispatch(update(componentName, callback))
         }
     }
 }

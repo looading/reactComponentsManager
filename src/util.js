@@ -1,5 +1,6 @@
 module.exports = {
     clone,
+    merge
 }
 
 
@@ -17,7 +18,7 @@ function clone(obj) {
             if (typeof(e) !== 'object' || !e) {
                 dist[i] = e;
             } else if (typeof(e) === 'object') {
-                dist[i] = cloneDeep(e);
+                dist[i] = clone(e);
             }
         })
 
@@ -27,10 +28,14 @@ function clone(obj) {
             if (typeof(obj[i]) !== 'object' || !obj[i]) {
                 dist[i] = obj[i];
             } else {
-                dist[i] = cloneDeep(obj[i]);
+                dist[i] = clone(obj[i]);
             }
         }
     }
 
     return dist;
+}
+
+function merge(a, b) {
+
 }

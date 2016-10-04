@@ -1,6 +1,6 @@
 {
   "name": "react-components-manager",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "manage react components server render",
   "main": "src/index.js",
   "dependencies": {

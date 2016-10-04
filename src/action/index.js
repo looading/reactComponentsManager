@@ -1,9 +1,10 @@
 
-export const test = () => {
+export const update = (componentName, callback) => {
     return {
-        type: 'test',
-        data: '123'
+        type: 'update',
+        data: {
+          componentName,
+          callback
+        }
     }
 }
-
-module.exports = test
