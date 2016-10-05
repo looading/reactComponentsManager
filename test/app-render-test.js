@@ -5,13 +5,14 @@ import { shallow, mount, render } from 'enzyme';
 
 import Help from "../demo/components/Help";
 
-describe('<Help />', () => {
+describe('<Help /> component test:', () => {
+  let data = {
+    text: {
+          msg: 'welcome to ctyloading`s website'
+        }
+  }
+
   it('should render h1', () => {
-    let data = {
-      text: {
-            msg: 'welcome to ctyloading`s website'
-          }
-    }
     const wrapper = shallow(
       <Help
         data={ data }
@@ -19,6 +20,19 @@ describe('<Help />', () => {
         id={ 1 }
       />
     );
-    expect(wrapper.find('.help'))
+    expect(wrapper.find('.help')).to.be.ok;
+  })
+
+  it('should render a string', () => {
+    const wrapper = shallow(
+      <Help
+        data={ data }
+        className={ "help" }
+        id={ 1 }
+      />
+    );
+    expect(wrapper.find('.help').html()).to.equal(
+      `<h1 class="help" id="1">welcome to ctyloading\`s website</h1>`
+    )
   })
 })

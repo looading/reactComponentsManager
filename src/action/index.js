@@ -1,10 +1,19 @@
 
-export const update = (componentName, callback) => {
-    return {
-        type: 'update',
-        data: {
-          componentName,
-          callback
-        }
+export const update = (uuid, callback) => {
+  return {
+    type: 'update',
+    data: {
+      uuid,
+      callback
     }
+  }
+}
+
+export const updateGlobal = (callback) => {
+  return {
+    type: 'updateGlobal',
+    data: {
+      callback
+    }
+  }
 }

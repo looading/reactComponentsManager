@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
-import update from "./test";
+import update from "./reducer";
 
 const reducer = update
 

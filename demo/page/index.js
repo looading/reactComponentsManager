@@ -28,7 +28,7 @@ let initData = {
             text: {
                 msg: '小的知错了!'
             }
-        },
+        }
     ],
     structure: {
         root: [

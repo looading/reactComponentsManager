@@ -1,1 +1,1 @@
-import './page/index'
+import './page/index';
