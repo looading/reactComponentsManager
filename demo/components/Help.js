@@ -8,7 +8,7 @@ class Help extends Component {
 
   onClick() {
     this.props.update((uuid, data) => {
-      data.text.msg = '修改成功!'
+      data.msg = '修改成功!'
       return data;
     })
   }

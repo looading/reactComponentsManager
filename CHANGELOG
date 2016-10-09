@@ -1,6 +1,7 @@
 ## 2016/10/09
 修改initData结构
 增加updateGlobal接口
+修复测试bug
 
 未解决bug state未更新
 
