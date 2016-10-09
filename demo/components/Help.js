@@ -7,19 +7,25 @@ class Help extends Component {
   }
 
   onClick() {
-    this.props.update(this.props.id, (uuid, data) => {
-      console.info(uuid, data)
+    this.props.update((uuid, data) => {
+      data.text.msg = '修改成功!'
       return data;
     })
   }
 
   render() {
-    let { data, className, id } = this.props;
+    let { collection, className, id } = this.props;
+    let data = collection.data;
     return (
-      <h1 className={ className } id={ id } onClick={ this.onClick }>{ data.text.msg }</h1>
+      <h1 className={ className } id={ id } onClick={ this.onClick }>{ data.msg }</h1>
     )
   }
 }
 
+Help.proptypes = {
+  data: PropTypes.object.isRequired,
+  className: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired
+}
 
 module.exports = Help;

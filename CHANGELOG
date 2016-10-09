@@ -1,3 +1,9 @@
+## 2016/10/09
+修改initData结构
+增加updateGlobal接口
+
+未解决bug state未更新
+
 ## 2016/10/04
 增加手动更新State接口
 

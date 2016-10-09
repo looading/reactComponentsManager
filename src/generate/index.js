@@ -7,14 +7,19 @@ import { update, updateGlobal } from '../action';
 class Generate extends Component {
     constructor(props) {
       super(props);
-      this.update = this.update.bind(this);
+      this._update = this._update.bind(this);
+      this._updateGlobal = this._updateGlobal.bind(this);
     }
-    update(uuid, callback) {
+
+    // 更新该组件的 state
+    _update(uuid, callback) {
       this.props.update(uuid, callback);
     }
-    updateGlobal(callback) {
-      this.props.updateGlobal(callback);
+    // 全局更新state
+    _updateGlobal(callback) {
+      this.props._updateGlobal(callback);
     }
+    // 遍历
     iterator(data) {
       data.map(() => {
         return(
@@ -24,13 +29,14 @@ class Generate extends Component {
       return data;
     }
 
+    // 获取组件
     getComponent(uuid) {
       let componentName = uuid.split('_')[0]
       return this.props.componentsList[componentName];
     }
     getData(uuid) {
       let id = uuid.split('_')[1];
-      return this.props.initData.data[id]
+      return this.props.initData.collections[id]
     }
     render() {
       let { initData, componentsList, id } = this.props;
@@ -43,12 +49,16 @@ class Generate extends Component {
             root.map((item, index, arr) => {
               let uuid = item;
               let Child = this.getComponent(uuid);
-              let data = this.getData(uuid);
+              let collection = this.getData(uuid);
 
               let newProps = {
-                data,
-                update: this.update,
-                updateGlobal: this.updateGlobal,
+                // _update: this._update,
+                // _updateGlobal: this._updateGlobal,
+                update: (callback) => {
+                  this._update(uuid, callback);
+                },
+                updateGlobal: this._updateGlobal,
+                collection,
                 className: `${id}_${uuid}`,
                 id: uuid
               }
@@ -76,8 +86,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    update: function (componentName, callback) {
-      return dispatch(update(componentName, callback))
+    update: function (uuid, callback) {
+      return dispatch(update(uuid, callback))
     },
     updateGlobal: function (callback) {
       return dispatch(updateGlobal(callback));

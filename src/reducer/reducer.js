@@ -4,23 +4,20 @@ export default function(state = {}, action) {
 
   switch (action.type) {
     case 'test':
-      var newState = util.clone(state);
+      var newState = Object.assign({}, state);
       return {
           ...state,
           msg: 12
       };
     case 'update':
-      var newState = util.clone(state);
-      // let uuid = action.data.uuid;
-      // let componentData = util.getComponentData(newState, uuid);
-      // let newComponentData = action.data.callback(uuid, componentData);
-      // console.warn(newComponentData)
-      // console.info(util.mergeComponentData(newState, uuid, newComponentData), state)
-      // return util.mergeComponentData(newState, uuid, newComponentData);
-      console.info(state, newState)
+      var newState = state;
+      let uuid = action.data.uuid;
+      let componentData = util.getComponentData(newState, uuid);
+      let newComponentData = action.data.callback(uuid, componentData);
+      newState = util.mergeComponentData(newState, uuid, newComponentData);
       return newState;
     case 'updateGlobal':
-      var newState = util.clone(state);
+      var newState = Object.assign({}, state);
       return action.data.callback(newState);
     default:
       return state;

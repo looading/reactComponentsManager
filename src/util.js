@@ -49,14 +49,14 @@ function mergeComponentData(obj, uuid, mergeObj) {
     return obj;
   }
   let index = uuid.split('_')[1];
-  obj.initData.data[index] = clone(mergeObj);
+  obj.initData.data[index] = mergeObj;
   return obj;
 }
 
 // 获取组件数据
 function getComponentData(state, uuid) {
   let index = uuid.split('_')[1];
-  let data = state.initData.data[index];
+  let data = state.initData.collections[index];
   return data;
 }
 

@@ -24,28 +24,28 @@ import Help from "../components/Help";
 
 ```js
 let initData = {
-    data: [
+    collections: [
         {
             // the type is component`s name
             type: 'help',
             // the id is unique
             id: '0',
             // the text is this component`s data
-            text: {
+            data: {
                 msg: 'welcome to ctyloading`s website'
             }
         },
         {
             type: 'help',
             id: '1',
-            text: {
+            data: {
                 msg: '老子是你大哥!'
             }
         },
         {
             type: 'help',
             id: '2',
-            text: {
+            data: {
                 msg: '小的知错了!'
             }
         },
@@ -102,10 +102,10 @@ class Help extends Component {
     render() {
         // data为传入的数据，initData中所对应组件的数据
         // className id 为 App 自动生成，必须放入最外层div
-        let { data, className, id } = this.props;
-
+        let { collection, className, id } = this.props;
+        let data = collection.data;
         return (
-            <h1 className={ className } id={ id } onClick={ this.onClick }>{ data.text.msg }</h1>
+            <h1 className={ className } id={ id } onClick={ this.onClick }>{ data.msg }</h1>
         )
     }
 }
@@ -118,7 +118,7 @@ module.exports = Help;
 #### this.props
 
 ```js
-let { id, data, className, update } = this.props;
+let { id, collection, className, update, updateGlobal } = this.props;
 // id 组件唯一标识
 // data initData中所对应组件的数据
 // className sdk生成的className
@@ -135,6 +135,19 @@ params:
 
 ```js
 this.props.update(this.props.id, (id, state) => {
+    return state; // 修改后必须返回
+  })
+```
+
+##### this.props.updateGlobal
+
+params:
+  - callback 回调函数
+    - id 组件的唯一标识
+    - state 应用的state
+
+```js
+this.props.updateGlobal((id, state) => {
     return state; // 修改后必须返回
   })
 ```
