@@ -6,16 +6,16 @@ import { shallow, mount, render } from 'enzyme';
 import Help from "../demo/components/Help";
 
 describe('<Help /> component test:', () => {
-  let data = {
-    text: {
-          msg: 'welcome to ctyloading`s website'
-        }
+  let collection = {
+      data: {
+        msg: 'welcome to ctyloading`s website'
+      }
   }
 
   it('should render h1', () => {
     const wrapper = shallow(
       <Help
-        data={ data }
+        collection={ collection }
         className={ "help" }
         id={ 1 }
       />
@@ -26,7 +26,7 @@ describe('<Help /> component test:', () => {
   it('should render a string', () => {
     const wrapper = shallow(
       <Help
-        data={ data }
+        collection={ collection }
         className={ "help" }
         id={ 1 }
       />
