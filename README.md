@@ -1,5 +1,7 @@
 # manage react components
 ![](https://travis-ci.org/looading/reactComponentsManager.svg?branch=master)
+[![npm](https://img.shields.io/npm/v/react-components-manager.svg?maxAge=2592000)](https://www.npmjs.com/package/react-components-manager)
+[![npm](https://img.shields.io/npm/dm/react-components-manager.svg?maxAge=2592000)](https://www.npmjs.com/package/react-components-manager)
 ## react 服务端组件渲染
 
 ## TODO
