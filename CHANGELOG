@@ -1,3 +1,6 @@
+## 2016/11/15
+README.md描述不正确，修复
+
 ## 2016/10/09
 修改initData结构
 增加updateGlobal接口

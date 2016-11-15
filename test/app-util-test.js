@@ -123,9 +123,7 @@ describe("util function::isEqual test:", () => {
     let a = [1, 2], b = [1, 2, 3];
     expect(isEqual(a, b)).to.be.false;
   })
-
 })
-
 
 describe("util function::clone test:", () => {
   let obj = {
