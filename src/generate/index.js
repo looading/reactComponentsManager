@@ -59,7 +59,7 @@ class Generate extends Component {
                 },
                 updateGlobal: this._updateGlobal,
                 collection,
-                className: `${id}_${uuid}`,
+                className: `${id}_${uuid.split('_')[0]}`,
                 id: uuid
               }
               return(

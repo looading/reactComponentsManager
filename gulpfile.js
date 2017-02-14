@@ -13,6 +13,8 @@ const gutil = require("gulp-util");
 const envify = require("envify/custom");
 const sourcemaps = require('gulp-sourcemaps');
 const reload = browserSync.reload;
+const del = require('del')
+
 
 let isDebug = Boolean(yargs.debug);
 // less autoprefix

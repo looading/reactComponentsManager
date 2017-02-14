@@ -53,7 +53,7 @@ var Help = function (_Component) {
     key: "onClick",
     value: function onClick() {
       this.props.update(function (uuid, data) {
-        data.text.msg = '修改成功!';
+        data.msg = '修改成功!';
         return data;
       });
     }
@@ -24189,7 +24189,7 @@ var Generate = function (_Component) {
           },
           updateGlobal: _this2._updateGlobal,
           collection: collection,
-          className: id + "_" + uuid,
+          className: id + "_" + uuid.split('_')[0],
           id: uuid
         };
         return _react2.default.createElement(Child, _extends({}, newProps, { key: index }));
