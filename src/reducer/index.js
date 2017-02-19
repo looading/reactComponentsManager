@@ -3,4 +3,4 @@ import update from "./reducer";
 
 const reducer = update
 
-export default reducer;
+module.exports = reducer

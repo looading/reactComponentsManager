@@ -1,6 +1,6 @@
 import util from '../util';
 
-export default function(state = {}, action) {
+const update =  function(state = {}, action) {
 
   switch (action.type) {
     case 'test':
@@ -23,3 +23,5 @@ export default function(state = {}, action) {
       return state;
   }
 }
+
+module.exports = update

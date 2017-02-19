@@ -24309,10 +24309,6 @@ var App = function (_Component) {
 module.exports = App;
 
 },{"./generate":201,"./reducer":203,"react":188,"react-dom":12,"react-redux":15,"redux":194}],203:[function(require,module,exports){
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
 var _redux = require("redux");
 
 var _reducer = require("./reducer");
@@ -24325,13 +24321,9 @@ function _interopRequireDefault(obj) {
 
 var reducer = _reducer2.default;
 
-exports.default = reducer;
+module.exports = reducer;
 
 },{"./reducer":204,"redux":194}],204:[function(require,module,exports){
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
 var _extends = Object.assign || function (target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = arguments[i];for (var key in source) {
@@ -24342,7 +24334,15 @@ var _extends = Object.assign || function (target) {
   }return target;
 };
 
-exports.default = function () {
+var _util = require('../util');
+
+var _util2 = _interopRequireDefault(_util);
+
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : { default: obj };
+}
+
+var update = function update() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
   var action = arguments[1];
 
@@ -24367,13 +24367,7 @@ exports.default = function () {
   }
 };
 
-var _util = require('../util');
-
-var _util2 = _interopRequireDefault(_util);
-
-function _interopRequireDefault(obj) {
-  return obj && obj.__esModule ? obj : { default: obj };
-}
+module.exports = update;
 
 },{"../util":205}],205:[function(require,module,exports){
 var _underscore = require('underscore');
